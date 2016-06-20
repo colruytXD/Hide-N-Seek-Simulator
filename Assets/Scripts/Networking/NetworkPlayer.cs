@@ -1,25 +1,17 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityStandardAssets.Characters.FirstPerson;
 
-public class NetworkPlayer : MonoBehaviour {
+public class NetworkPlayer : Photon.MonoBehaviour {
+
+    public GameObject myCamera;
 
 	void OnEnable() 
 	{
-		SetInitialReferences();
-	}
-
-	void OnDisable() 
-	{
-
-	}
-	
-	void Update () 
-	{
-	
-	}
-
-	void SetInitialReferences() 
-	{
-
-	}
+        if(photonView.isMine)
+        {
+            myCamera.SetActive(true);
+            GetComponent<FirstPersonController>().enabled = true;
+        }
+    }
 }
