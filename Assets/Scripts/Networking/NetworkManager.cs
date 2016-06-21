@@ -1,39 +1,56 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class NetworkManager : MonoBehaviour {
+public class NetworkManager : Photon.PunBehaviour {
 
     private string gameVersion = "0.01";
     public string roomName = "room";
 
     public string playerPrefabName = "FPSController";
-    public Transform spawnPoint;
+    public GameObject[] spawnPoints;
 
-	void OnEnable() 
-	{
-		SetInitialReferences();
-
-        PhotonNetwork.ConnectUsingSettings(gameVersion);
-	}
-
-	void OnDisable() 
-	{
-
-	}
-
-	void SetInitialReferences() 
-	{
-
-	}
-
-    void OnJoinedLobby()
+	void Start()
     {
-        RoomOptions roomOptions = new RoomOptions() { isVisible = false, maxPlayers = 4 };
-        PhotonNetwork.JoinOrCreateRoom(roomName, roomOptions, TypedLobby.Default);
+        Connect();
+        spawnPoints = GameObject.FindGameObjectsWithTag("SpawnPoint");
     }
 
+    void Connect()
+    {
+        PhotonNetwork.ConnectUsingSettings(gameVersion);
+    }
+
+    void OnGUI()
+    {
+        //Toont connectie details
+        GUILayout.Label(PhotonNetwork.connectionStateDetailed.ToString());
+    }
+
+    //PUN
+    void OnJoinedLobby()
+    {
+        PhotonNetwork.JoinRandomRoom();
+        print("OnJoinedLobby");
+    }
+
+    //PUN
+    void OnPhotonRandomJoinFailed()
+    {
+        RoomOptions roomOptions = new RoomOptions() { isVisible = true, maxPlayers = 4};
+        PhotonNetwork.CreateRoom(null, roomOptions, TypedLobby.Default);
+        print("OnPhotonRandomJoinFailed");
+    }
+
+    //PUN
     void OnJoinedRoom()
     {
-        PhotonNetwork.Instantiate(playerPrefabName, spawnPoint.position, spawnPoint.rotation, 0);
+        SpawnPlayer();
+        print("OnJoinedRoom");
+    }
+
+    void SpawnPlayer()
+    {
+        PhotonNetwork.Instantiate(playerPrefabName, spawnPoints[Random.Range(0, spawnPoints.Length)].transform.position, spawnPoints[0].transform.rotation, 0);
+
     }
 }
