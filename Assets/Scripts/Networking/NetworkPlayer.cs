@@ -5,6 +5,8 @@ using UnityStandardAssets.Characters.FirstPerson;
 public class NetworkPlayer : Photon.MonoBehaviour {
 
     public GameObject myCamera;
+    public FirstPersonController FPSC;
+
 
     private Vector3 correctPlayerPos = Vector3.zero; // We lerp towards this
     private Quaternion correctPlayerRot = Quaternion.identity; // We lerp towards this
@@ -14,7 +16,7 @@ public class NetworkPlayer : Photon.MonoBehaviour {
         if (photonView.isMine)
         {
             myCamera.SetActive(true);
-            GetComponent<FirstPersonController>().enabled = true;
+            FPSC.enabled = true;
         }
     }
 
@@ -23,8 +25,8 @@ public class NetworkPlayer : Photon.MonoBehaviour {
     {
         if (!photonView.isMine)
         {
-            transform.position = Vector3.Lerp(transform.position, this.correctPlayerPos, Time.deltaTime * 10);
-            transform.rotation = Quaternion.Lerp(transform.rotation, this.correctPlayerRot, Time.deltaTime * 10);
+            transform.position = Vector3.Lerp(transform.position, this.correctPlayerPos, Time.deltaTime * 20);
+            transform.rotation = Quaternion.Lerp(transform.rotation, this.correctPlayerRot, Time.deltaTime * 20);
         }
     }
 

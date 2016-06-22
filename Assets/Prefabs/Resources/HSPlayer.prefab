@@ -33,7 +33,7 @@ GameObject:
   - 114: {fileID: 11439622}
   - 114: {fileID: 11409168}
   m_Layer: 0
-  m_Name: FPSController
+  m_Name: HSPlayer
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -302,6 +302,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myCamera: {fileID: 195262}
+  FPSC: {fileID: 11469706}
 --- !u!114 &11439622
 MonoBehaviour:
   m_ObjectHideFlags: 1

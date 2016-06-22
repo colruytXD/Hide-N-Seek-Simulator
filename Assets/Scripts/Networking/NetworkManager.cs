@@ -3,21 +3,35 @@ using System.Collections;
 
 public class NetworkManager : Photon.PunBehaviour {
 
-    private string gameVersion = "0.01";
-    public string roomName = "room";
+    private Networking_Master networkingMasterScript;
 
-    public string playerPrefabName = "FPSController";
-    public GameObject[] spawnPoints;
+    void OnEnable()
+    {
+        SetInitialReferences();
+    }
 
 	void Start()
     {
         Connect();
-        spawnPoints = GameObject.FindGameObjectsWithTag("SpawnPoint");
+    }
+    
+
+    void SetInitialReferences()
+    {
+        networkingMasterScript = GetComponent<Networking_Master>();
     }
 
     void Connect()
     {
-        PhotonNetwork.ConnectUsingSettings(gameVersion);
+        if(networkingMasterScript.offlineMode)
+        {
+            PhotonNetwork.offlineMode = true;
+            OnJoinedLobby();
+        }
+        else
+        {
+            PhotonNetwork.ConnectUsingSettings(networkingMasterScript.GAMEVERSION);
+        }
     }
 
     void OnGUI()
@@ -27,30 +41,27 @@ public class NetworkManager : Photon.PunBehaviour {
     }
 
     //PUN
-    void OnJoinedLobby()
+    //Triggers when player comes into the lobby
+    public override void OnJoinedLobby()
     {
         PhotonNetwork.JoinRandomRoom();
-        print("OnJoinedLobby");
+        Debug.Log("Joined the lobby");
     }
 
     //PUN
+    //Triggers when joining a room has failed
     void OnPhotonRandomJoinFailed()
     {
         RoomOptions roomOptions = new RoomOptions() { isVisible = true, maxPlayers = 4};
         PhotonNetwork.CreateRoom(null, roomOptions, TypedLobby.Default);
-        print("OnPhotonRandomJoinFailed");
+        Debug.Log("Joining random room has failed");
     }
 
     //PUN
-    void OnJoinedRoom()
+    //Triggers when player entered a room
+    public override void OnJoinedRoom()
     {
-        SpawnPlayer();
-        print("OnJoinedRoom");
-    }
-
-    void SpawnPlayer()
-    {
-        PhotonNetwork.Instantiate(playerPrefabName, spawnPoints[Random.Range(0, spawnPoints.Length)].transform.position, spawnPoints[0].transform.rotation, 0);
-
+        networkingMasterScript.CallEventSpawnPlayer();
+        Debug.Log("Successfully joined a room");
     }
 }
