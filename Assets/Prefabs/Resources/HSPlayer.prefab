@@ -11,7 +11,7 @@ GameObject:
   - 33: {fileID: 3360750}
   - 135: {fileID: 13521288}
   - 23: {fileID: 2397790}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29,7 +29,7 @@ GameObject:
   - 33: {fileID: 3349968}
   - 136: {fileID: 13623626}
   - 23: {fileID: 2300580}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Capsule
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -47,7 +47,7 @@ GameObject:
   - 33: {fileID: 3317520}
   - 135: {fileID: 13568950}
   - 23: {fileID: 2351712}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Sphere (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -68,9 +68,9 @@ GameObject:
   - 82: {fileID: 8251730}
   - 114: {fileID: 11439622}
   - 114: {fileID: 11409168}
-  - 114: {fileID: 11444082}
   - 114: {fileID: 11471794}
-  m_Layer: 0
+  - 114: {fileID: 11430104}
+  m_Layer: 8
   m_Name: HSPlayer
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -85,7 +85,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 426546}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Visual
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -103,7 +103,8 @@ GameObject:
   - 20: {fileID: 2016088}
   - 81: {fileID: 8119452}
   - 124: {fileID: 12426272}
-  m_Layer: 0
+  - 114: {fileID: 11429292}
+  m_Layer: 8
   m_Name: FirstPersonCharacter
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -217,7 +218,7 @@ Camera:
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967039
+    m_Bits: 4294967295
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -435,6 +436,29 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myCamera: {fileID: 195262}
   FPSC: {fileID: 11469706}
+--- !u!114 &11429292
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 195262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb52f7d7ac4256d48a0f2fa5034d1132, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hitRange: 5
+--- !u!114 &11430104
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 164554}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 614e7c6e1a40e864a97a9a8751d05e79, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11439622
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -460,17 +484,6 @@ MonoBehaviour:
   viewIdField: 0
   instantiationId: -1
   isRuntimeInstantiated: 0
---- !u!114 &11444082
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 164554}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb52f7d7ac4256d48a0f2fa5034d1132, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &11469706
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -486,9 +499,9 @@ MonoBehaviour:
   m_WalkSpeed: 5
   m_RunSpeed: 10
   m_RunstepLenghten: 0.7
-  m_JumpSpeed: 10
-  m_StickToGroundForce: 10
-  m_GravityMultiplier: 2
+  m_JumpSpeed: 7
+  m_StickToGroundForce: 7
+  m_GravityMultiplier: 2.5
   m_MouseLook:
     XSensitivity: 2
     YSensitivity: 2
@@ -533,29 +546,19 @@ MonoBehaviour:
         inSlope: 0
         outSlope: 0
         tangentMode: 0
-      - time: 0.5
-        value: 1
-        inSlope: 0
-        outSlope: 0
+      - time: 1.1939638
+        value: 1.2857329
+        inSlope: 1.4999509
+        outSlope: 1.4999509
         tangentMode: 0
-      - time: 1
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-      - time: 1.5
-        value: -1
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-      - time: 2
-        value: 0
+      - time: 2.9859645
+        value: -0.016171163
         inSlope: 0
         outSlope: 0
         tangentMode: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
-      m_RotationOrder: 4
+      m_RotationOrder: 0
     VerticaltoHorizontalRatio: 2
   m_JumpBob:
     BobDuration: 0.2
