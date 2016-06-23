@@ -19,7 +19,7 @@ MonoBehaviour:
   PreferredRegion: 0
   EnabledRegions: -1
   JoinLobby: 1
-  EnableLobbyStatistics: 0
+  EnableLobbyStatistics: 1
   RpcList:
   - Chat
   - ColorRpc
@@ -36,4 +36,5 @@ MonoBehaviour:
   - PunRespawn
   - RequestForPickupTimes
   - TaggedPlayer
+  - DestroyThis
   DisableAutoOpenWizard: 1

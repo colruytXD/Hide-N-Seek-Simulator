@@ -6,6 +6,7 @@ public class NetworkPlayer : Photon.MonoBehaviour {
 
     public GameObject myCamera;
     public FirstPersonController FPSC;
+    private int syncSpeed = 20;
 
 
     private Vector3 correctPlayerPos = Vector3.zero; // We lerp towards this
@@ -25,9 +26,11 @@ public class NetworkPlayer : Photon.MonoBehaviour {
     {
         if (!photonView.isMine)
         {
-            transform.position = Vector3.Lerp(transform.position, this.correctPlayerPos, Time.deltaTime * 20);
-            transform.rotation = Quaternion.Lerp(transform.rotation, this.correctPlayerRot, Time.deltaTime * 20);
+            transform.position = Vector3.Lerp(transform.position, this.correctPlayerPos, Time.deltaTime * syncSpeed);
+            transform.rotation = Quaternion.Lerp(transform.rotation, this.correctPlayerRot, Time.deltaTime * syncSpeed);
         }
+        
+
     }
 
     void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
