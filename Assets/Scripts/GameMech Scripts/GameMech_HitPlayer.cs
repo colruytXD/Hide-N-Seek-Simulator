@@ -8,23 +8,9 @@ public class GameMech_HitPlayer : MonoBehaviour {
     [SerializeField]
     private float hitRange = 5;
 
-	void OnEnable() 
-	{
-		SetInitialReferences();
-	}
-
-	void OnDisable() 
-	{
-
-	}
-	
 	void Update () 
 	{
         CheckForPlayer();
-	}
-
-	void SetInitialReferences() 
-	{
 	}
 
     void CheckForPlayer()
@@ -36,7 +22,10 @@ public class GameMech_HitPlayer : MonoBehaviour {
             if(Physics.Raycast(gameObject.transform.position, gameObject.transform.forward, out hit, hitRange, LayerMask.NameToLayer("Player")))
             {
                 Debug.Log("hit " + hit.transform.name);
-                hit.transform.GetComponent<PhotonView>().RPC("GetHit", PhotonTargets.All);
+                if(GetComponent<GameMech_PlayerGotHit>() != null)
+                {
+                    hit.transform.GetComponent<PhotonView>().RPC("GetHit", PhotonTargets.All);
+                }
             }
         }
     }
