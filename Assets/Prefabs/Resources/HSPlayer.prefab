@@ -70,6 +70,8 @@ GameObject:
   - 114: {fileID: 11409168}
   - 114: {fileID: 11471794}
   - 114: {fileID: 11430104}
+  - 114: {fileID: 11422996}
+  - 114: {fileID: 11468350}
   m_Layer: 8
   m_Name: HSPlayer
   m_TagString: Player
@@ -436,6 +438,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myCamera: {fileID: 195262}
   FPSC: {fileID: 11469706}
+--- !u!114 &11422996
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 164554}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b3299b0d6b7adb4ba83ffac0adb3254, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  loadingCamera: {fileID: 0}
 --- !u!114 &11429292
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -484,6 +498,18 @@ MonoBehaviour:
   viewIdField: 0
   instantiationId: -1
   isRuntimeInstantiated: 0
+--- !u!114 &11468350
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 164554}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb52f7d7ac4256d48a0f2fa5034d1132, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hitRange: 5
 --- !u!114 &11469706
 MonoBehaviour:
   m_ObjectHideFlags: 1
