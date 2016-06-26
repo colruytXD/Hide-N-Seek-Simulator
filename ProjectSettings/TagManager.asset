@@ -7,6 +7,8 @@ TagManager:
   - NetworkPlayer
   - SpawnPoint
   - GameHandler
+  - NetworkHandler
+  - DeathCamera
   layers:
   - Default
   - TransparentFX

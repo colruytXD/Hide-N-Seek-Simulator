@@ -7,7 +7,6 @@ public class Network_DisableOwnBody : Photon.MonoBehaviour
 
     void OnEnable()
     {
-
         if (photonView.isMine)
         {
             myVisuals.SetActive(false);

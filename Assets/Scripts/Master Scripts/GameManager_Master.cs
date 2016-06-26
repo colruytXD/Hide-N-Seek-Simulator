@@ -1,8 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-namespace main
-{
     public class GameManager_Master : MonoBehaviour
     {
         public delegate void GameManagerHandler();
@@ -14,6 +12,7 @@ namespace main
         public event GameManagerHandler EventResetGameValues;
         public event GameManagerHandler EventLoadGameScene;
         public event GameManagerHandler EventGoToMPMenu;
+        public event GameManagerHandler EventPlayerDied;
 
         public void CallEventQuitGame()
         {
@@ -70,7 +69,14 @@ namespace main
                 EventGoToMPMenu();
             }
         }
+
+        public void CallEventPlayerDied()
+        {
+            if(EventPlayerDied != null)
+            {
+                EventPlayerDied();
+            }
+        }
     }
-}
 
 

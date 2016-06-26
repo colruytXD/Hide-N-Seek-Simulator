@@ -6,22 +6,22 @@ public class GameManager_DisableLoadingScreen : Photon.MonoBehaviour {
     [SerializeField]
     private GameObject loadingCamera;
 
+    private Networking_Master networkMasterScript;
+
     void OnEnable()
     {
         SetInitialReferences();
+        networkMasterScript.EventSpawnPlayer += DisableLoadingCamera;
     }
 
-    void Start()
+    void OnDisable()
     {
-        if(photonView.isMine)
-        {
-            DisableLoadingCamera();
-        }
+        networkMasterScript.EventSpawnPlayer -= DisableLoadingCamera;
     }
 
     void SetInitialReferences()
     {
-        loadingCamera = GameObject.FindGameObjectWithTag("MainCamera");
+        networkMasterScript = GameObject.FindGameObjectWithTag("NetworkHandler").GetComponent<Networking_Master>();
     }
 
     void DisableLoadingCamera()

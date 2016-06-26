@@ -1,11 +1,34 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class GameMech_PlayerGotHit : MonoBehaviour {
+public class GameMech_PlayerGotHit : Photon.MonoBehaviour {
+
+    private GameManager_Master gameManagerMasterScript;
+
+
+    void OnEnable()
+    {
+        SetInitalReferences();
+    }
+
+    void SetInitalReferences()
+    {
+        gameManagerMasterScript = GameObject.FindGameObjectWithTag("GameHandler").GetComponent<GameManager_Master>();
+    }
 
     [PunRPC]
-    public void GetHit()
+    public void PlayerGotHit()
     {
-        PhotonNetwork.Destroy(gameObject);
+        Debug.Log("Awtch i got hit");
+        gameManagerMasterScript.CallEventPlayerDied();
+        DestroyPlayer();
+    }
+
+    void DestroyPlayer()
+    {
+        if(photonView.isMine)
+        {
+            PhotonNetwork.Destroy(gameObject);
+        }
     }
 }

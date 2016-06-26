@@ -38,4 +38,5 @@ MonoBehaviour:
   - TaggedPlayer
   - DestroyThis
   - GetHit
+  - PlayerGotHit
   DisableAutoOpenWizard: 1
