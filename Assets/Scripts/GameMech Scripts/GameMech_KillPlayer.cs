@@ -9,12 +9,12 @@ public class GameMech_KillPlayer : MonoBehaviour {
 	void OnEnable() 
 	{
 		SetInitialReferences();
-        gameManagerMasterScript.EventPlayerDied += KillPlayer;
+        //gameManagerMasterScript.EventPlayerDied += KillPlayer;
     }
 
 	void OnDisable() 
 	{
-        gameManagerMasterScript.EventPlayerDied -= KillPlayer;
+        //gameManagerMasterScript.EventPlayerDied -= KillPlayer;
     }
 
 	void SetInitialReferences() 
@@ -24,7 +24,6 @@ public class GameMech_KillPlayer : MonoBehaviour {
 
     void KillPlayer()
     {
-        gameObject.GetComponent<FirstPersonController>().enabled = false;
         PhotonNetwork.Destroy(gameObject);
     }
 }

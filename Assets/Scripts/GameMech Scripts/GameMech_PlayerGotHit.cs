@@ -32,8 +32,6 @@ public class GameMech_PlayerGotHit : Photon.MonoBehaviour {
 
         if(photonView.isMine)
         {
-            Cursor.visible = true;
-            Cursor.lockState = CursorLockMode.None;
             gameManagerMasterScript.CallEventPlayerDied();
             networkingMasterScript.CallEventDisconnect();
             gameManagerMasterScript.CallEventLoadGameScene();

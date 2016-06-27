@@ -87,7 +87,6 @@ GameObject:
   - 114: {fileID: 11482528}
   - 114: {fileID: 11486410}
   - 114: {fileID: 11427728}
-  - 114: {fileID: 11421396}
   - 114: {fileID: 11492338}
   m_Layer: 8
   m_Name: HSPlayer
@@ -464,17 +463,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myCamera: {fileID: 137666}
   FPSC: {fileID: 11459088}
---- !u!114 &11421396
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 179672}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d2ec786f2f24f84698983f36077fdf8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &11427728
 MonoBehaviour:
   m_ObjectHideFlags: 1
