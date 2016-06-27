@@ -4,22 +4,22 @@ using System.Collections;
 
 namespace main
 {
-	public class GameManager_LoadGameScene : MonoBehaviour {
+	public class GameManager_LoadGameScene : Photon.MonoBehaviour {
 
         private GameManager_Master gameManagerMaster;
 
         [SerializeField]
-        private int amountOfScenes;
+        private int NextSceneNumber;
 
 		void OnEnable()
 		{
             SetInitialReferences();
-            gameManagerMaster.EventLoadGameScene += LoadRandomGameScene;
+            gameManagerMaster.EventLoadGameScene += LoadChosenGameScene;
 		}
 
 		void OnDisable()
 		{
-            gameManagerMaster.EventLoadGameScene -= LoadRandomGameScene;
+            gameManagerMaster.EventLoadGameScene -= LoadChosenGameScene;
         }
 
 		void SetInitialReferences()
@@ -27,12 +27,9 @@ namespace main
             gameManagerMaster = GetComponent<GameManager_Master>();
 		}
 
-        void LoadRandomGameScene()
+        void LoadChosenGameScene()
         {
-            int sceneToLoad;
-            sceneToLoad = Random.Range(1, amountOfScenes);
-
-            SceneManager.LoadScene(sceneToLoad);
+                SceneManager.LoadScene(NextSceneNumber);
         } 
 	}
 }

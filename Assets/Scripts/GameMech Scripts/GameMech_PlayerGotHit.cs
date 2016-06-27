@@ -4,7 +4,7 @@ using System.Collections;
 public class GameMech_PlayerGotHit : Photon.MonoBehaviour {
 
     private GameManager_Master gameManagerMasterScript;
-
+    private Networking_Master networkingMasterScript;
 
     void OnEnable()
     {
@@ -14,21 +14,29 @@ public class GameMech_PlayerGotHit : Photon.MonoBehaviour {
     void SetInitalReferences()
     {
         gameManagerMasterScript = GameObject.FindGameObjectWithTag("GameHandler").GetComponent<GameManager_Master>();
+        networkingMasterScript = GameObject.FindGameObjectWithTag("NetworkHandler").GetComponent<Networking_Master>();
+    }
+
+    void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.Mouse1))
+        {
+            PlayerGotHit();
+        }
     }
 
     [PunRPC]
     public void PlayerGotHit()
     {
-        Debug.Log("Awtch i got hit");
-        gameManagerMasterScript.CallEventPlayerDied();
-        DestroyPlayer();
-    }
+        Debug.Log(gameObject.name + " got hit");
 
-    void DestroyPlayer()
-    {
         if(photonView.isMine)
         {
-            PhotonNetwork.Destroy(gameObject);
-        }
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
+            gameManagerMasterScript.CallEventPlayerDied();
+            networkingMasterScript.CallEventDisconnect();
+            gameManagerMasterScript.CallEventLoadGameScene();
+        }  
     }
 }

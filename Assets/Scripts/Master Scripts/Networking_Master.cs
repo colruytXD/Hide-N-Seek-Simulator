@@ -10,12 +10,21 @@ public class Networking_Master : MonoBehaviour {
     public delegate void NetworkingHandler();
 
     public event NetworkingHandler EventSpawnPlayer;
+    public event NetworkingHandler EventDisconnect;
 
     public void CallEventSpawnPlayer()
     {
-        if(EventSpawnPlayer != null)
+        if (EventSpawnPlayer != null)
         {
             EventSpawnPlayer();
+        }
+    }
+
+    public void CallEventDisconnect()
+    {
+        if(EventDisconnect != null)
+        {
+            EventDisconnect();
         }
     }
 }

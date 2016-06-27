@@ -10,11 +10,6 @@ public class GameManager_EnableDeathScreen : Photon.MonoBehaviour {
 	{
 		SetInitialReferences();
         gameManagerMasterScript.EventPlayerDied += EnableDeathScreen;
-
-        if(photonView.isMine)
-        {
-            deathCamera.SetActive(false);
-        }
 	}
 
 	void OnDisable() 
@@ -30,9 +25,6 @@ public class GameManager_EnableDeathScreen : Photon.MonoBehaviour {
 
     void EnableDeathScreen()
     {
-        if (photonView.isMine)
-        {
             deathCamera.SetActive(true);
-        }
     }
 }

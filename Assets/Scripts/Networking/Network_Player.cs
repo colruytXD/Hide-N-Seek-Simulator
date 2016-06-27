@@ -2,7 +2,7 @@
 using System.Collections;
 using UnityStandardAssets.Characters.FirstPerson;
 
-public class NetworkPlayer : Photon.MonoBehaviour {
+public class Network_Player : Photon.MonoBehaviour {
 
     public GameObject myCamera;
     public FirstPersonController FPSC;
