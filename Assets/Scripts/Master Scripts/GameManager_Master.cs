@@ -13,8 +13,11 @@ using System.Collections;
         public event GameManagerHandler EventLoadGameScene;
         public event GameManagerHandler EventGoToMPMenu;
         public event GameManagerHandler EventPlayerDied;
+        public event GameManagerHandler EventShowChoiceMenu;
+        public event GameManagerHandler EventDisableMenuCamera;
 
-        public void CallEventQuitGame()
+
+    public void CallEventQuitGame()
         {
             if (EventQuitGame != null)
             {
@@ -75,6 +78,22 @@ using System.Collections;
             if(EventPlayerDied != null)
             {
                 EventPlayerDied();
+            }
+        }
+
+        public void CallEventShowChoiceMenu()
+        {
+            if(EventShowChoiceMenu != null)
+            {
+                EventShowChoiceMenu();
+            }
+        }
+
+        public void CallEventDisableMenuCamera()
+        {
+            if(EventDisableMenuCamera != null)
+            {
+                EventDisableMenuCamera();
             }
         }
     }

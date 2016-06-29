@@ -4,6 +4,7 @@ using System.Collections;
 public class NetworkManager : Photon.PunBehaviour {
 
     private Networking_Master networkingMasterScript;
+    private GameManager_Master gameManagerMasterScript;
 
     void OnEnable()
     {
@@ -19,6 +20,7 @@ public class NetworkManager : Photon.PunBehaviour {
     void SetInitialReferences()
     {
         networkingMasterScript = GetComponent<Networking_Master>();
+        gameManagerMasterScript = GameObject.FindGameObjectWithTag("GameHandler").GetComponent<GameManager_Master>();
     }
 
     void Connect()
@@ -61,7 +63,7 @@ public class NetworkManager : Photon.PunBehaviour {
     //Triggers when player entered a room
     public override void OnJoinedRoom()
     {
-        networkingMasterScript.CallEventSpawnPlayer();
+        gameManagerMasterScript.CallEventShowChoiceMenu();
         Debug.Log("Successfully joined a room");
     }
 }
