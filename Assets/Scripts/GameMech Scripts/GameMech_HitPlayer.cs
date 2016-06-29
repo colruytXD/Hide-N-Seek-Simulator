@@ -27,7 +27,8 @@ public class GameMech_HitPlayer : MonoBehaviour {
                 if(GetComponent<GameMech_PlayerGotHit>() != null)
                 {
                     Debug.Log("Called hit");
-                    hit.transform.GetComponent<PhotonView>().RPC("PlayerGotHit", PhotonTargets.All);
+                    int HittedPhotonID = hit.transform.GetComponent<PhotonView>().GetInstanceID(); 
+                    hit.transform.GetComponent<PhotonView>().RPC("PlayerGotHit", PhotonTargets.Others);
                 }
                 else
                 {
