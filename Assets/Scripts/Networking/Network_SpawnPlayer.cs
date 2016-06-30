@@ -33,14 +33,14 @@ public class Network_SpawnPlayer : Photon.MonoBehaviour {
         gameManagerMasterScript = GameObject.FindGameObjectWithTag("GameHandler").GetComponent<GameManager_Master>();
 	}
 
-    void SpawnPlayer()
+    public void SpawnPlayer()
     {
         if(gameRole == 1)
         {
             PhotonNetwork.Instantiate(seekerPrefabName, spawnPoints[Random.Range(0, spawnPoints.Length)].transform.position, spawnPoints[0].transform.rotation, 0);
             Debug.Log("Spawned Seeker");
         }
-        else
+        else if(gameRole == 0)
         {
             PhotonNetwork.Instantiate(hiderPrefabName, spawnPoints[Random.Range(0, spawnPoints.Length)].transform.position, spawnPoints[0].transform.rotation, 0);
             Debug.Log("Spawned Hider");

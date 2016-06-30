@@ -8,7 +8,7 @@ public class GameMech_HitPlayer : MonoBehaviour {
     [SerializeField]
     private float hitRange = 5;
     [SerializeField]
-    private LayerMask playerLayer;
+    private LayerMask hiderLayer;
 
 	void Update () 
 	{
@@ -21,19 +21,11 @@ public class GameMech_HitPlayer : MonoBehaviour {
         {
             Debug.Log("mouse0 pressed");
             Debug.DrawRay(gameObject.transform.position, gameObject.transform.forward, Color.blue, 10f);
-            if(Physics.Raycast(gameObject.transform.position, gameObject.transform.forward, out hit, hitRange, playerLayer))
+            if(Physics.Raycast(gameObject.transform.position, gameObject.transform.forward, out hit, hitRange, hiderLayer))
             {
-                Debug.Log("hit " + hit.transform.name);
-                if(GetComponent<GameMech_PlayerGotHit>() != null)
-                {
-                    Debug.Log("Called hit");
-                    int HittedPhotonID = hit.transform.GetComponent<PhotonView>().GetInstanceID(); 
+                    Debug.Log("hit " + hit.transform.name);
+
                     hit.transform.GetComponent<PhotonView>().RPC("PlayerGotHit", PhotonTargets.Others);
-                }
-                else
-                {
-                    Debug.LogError("Player has no PlayerGotHit script, attach one!");
-                }
             }
         }
     }

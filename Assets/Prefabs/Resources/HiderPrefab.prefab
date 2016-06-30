@@ -11,8 +11,7 @@ GameObject:
   - 20: {fileID: 2066258}
   - 81: {fileID: 8111992}
   - 124: {fileID: 12428798}
-  - 114: {fileID: 11478140}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: FirstPersonCharacter
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -30,7 +29,7 @@ GameObject:
   - 33: {fileID: 3368734}
   - 135: {fileID: 13575680}
   - 23: {fileID: 2387754}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: Sphere (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -48,7 +47,7 @@ GameObject:
   - 33: {fileID: 3325774}
   - 135: {fileID: 13534754}
   - 23: {fileID: 2358612}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -63,7 +62,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 473016}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: Visual
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -86,7 +85,7 @@ GameObject:
   - 114: {fileID: 11412542}
   - 114: {fileID: 11482528}
   - 114: {fileID: 11486410}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: HiderPrefab
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -104,7 +103,7 @@ GameObject:
   - 33: {fileID: 3304786}
   - 136: {fileID: 13686302}
   - 23: {fileID: 2395718}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: Capsule
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -546,21 +545,6 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 8bc94ec6ed537e743b481638bdcd503d, type: 3}
   m_JumpSound: {fileID: 8300000, guid: 5897aeed9b676024fbb8c694b421a861, type: 3}
   m_LandSound: {fileID: 8300000, guid: 3b09d59f4499d45428baa7a21e954296, type: 3}
---- !u!114 &11478140
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 137666}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb52f7d7ac4256d48a0f2fa5034d1132, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hitRange: 5
-  playerLayer:
-    serializedVersion: 2
-    m_Bits: 0
 --- !u!114 &11482528
 MonoBehaviour:
   m_ObjectHideFlags: 1

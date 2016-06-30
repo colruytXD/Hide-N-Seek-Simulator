@@ -85,9 +85,9 @@ GameObject:
   - 114: {fileID: 11408654}
   - 114: {fileID: 11412542}
   - 114: {fileID: 11482528}
-  - 114: {fileID: 11486410}
+  - 114: {fileID: 11454512}
   m_Layer: 8
-  m_Name: HiderPrefab
+  m_Name: SeekerPrefab
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -461,6 +461,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myCamera: {fileID: 137666}
   FPSC: {fileID: 11459088}
+--- !u!114 &11454512
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 179672}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 614e7c6e1a40e864a97a9a8751d05e79, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11459088
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -558,9 +569,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hitRange: 5
-  playerLayer:
+  hiderLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 1024
 --- !u!114 &11482528
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -573,17 +584,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myVisuals: {fileID: 153828}
---- !u!114 &11486410
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 179672}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 614e7c6e1a40e864a97a9a8751d05e79, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!124 &12428798
 Behaviour:
   m_ObjectHideFlags: 1
