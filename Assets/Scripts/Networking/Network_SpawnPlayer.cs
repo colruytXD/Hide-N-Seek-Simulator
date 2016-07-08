@@ -45,10 +45,7 @@ public class Network_SpawnPlayer : Photon.MonoBehaviour {
             PhotonNetwork.Instantiate(hiderPrefabName, spawnPoints[Random.Range(0, spawnPoints.Length)].transform.position, spawnPoints[0].transform.rotation, 0);
             Debug.Log("Spawned Hider");
         }
-        //if(photonView.isMine)
-        //{
             gameManagerMasterScript.CallEventDisableMenuCamera();
-        //}
     }
 
     public void ChoiceSeeker()

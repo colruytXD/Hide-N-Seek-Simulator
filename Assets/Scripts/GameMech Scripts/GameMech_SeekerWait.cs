@@ -17,11 +17,6 @@ public class GameMech_SeekerWait : Photon.MonoBehaviour {
 		SetInitialReferences();
 	}
 
-	void OnDisable() 
-	{
-
-	}
-
 	void SetInitialReferences() 
 	{
         gameManagerMasterScript = GetComponent<GameManager_Master>();
@@ -39,7 +34,14 @@ public class GameMech_SeekerWait : Photon.MonoBehaviour {
         pnlChoices.SetActive(false);
         pnlHiding.SetActive(true);
         yield return new WaitForSeconds(waitTime);
-        pnlHiding.SetActive(false);
-        spawnPlayerScript.ChoiceSeeker();
+        if(PhotonNetwork.countOfPlayersInRooms != 0)
+        {
+            spawnPlayerScript.ChoiceSeeker();
+            pnlHiding.SetActive(false);
+        }
+        else
+        {
+            StartCoroutine(Waiter());
+        }
     }
 }
