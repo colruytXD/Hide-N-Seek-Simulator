@@ -12,6 +12,8 @@ GameObject:
   - 81: {fileID: 8111992}
   - 124: {fileID: 12428798}
   - 114: {fileID: 11478140}
+  - 114: {fileID: 11487740}
+  - 114: {fileID: 11452090}
   m_Layer: 8
   m_Name: FirstPersonCharacter
   m_TagString: MainCamera
@@ -212,7 +214,7 @@ Camera:
     height: 1
   near clip plane: 0.05
   far clip plane: 1000
-  field of view: 60
+  field of view: 70
   orthographic: 0
   orthographic size: 5
   m_Depth: 0
@@ -461,6 +463,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myCamera: {fileID: 137666}
   FPSC: {fileID: 11459088}
+--- !u!114 &11452090
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 137666}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 301eca71255100647bb9bad1d5641921, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shader: {fileID: 4800000, guid: cd5b323dcc592457790ff18b528f5e67, type: 3}
 --- !u!114 &11454512
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -484,8 +498,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_IsWalking: 0
-  m_WalkSpeed: 3
-  m_RunSpeed: 6
+  m_WalkSpeed: 5
+  m_RunSpeed: 7
   m_RunstepLenghten: 0.7
   m_JumpSpeed: 7
   m_StickToGroundForce: 7
@@ -584,6 +598,29 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myVisuals: {fileID: 153828}
+--- !u!114 &11487740
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 137666}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd6d4281e5d7cd44d8c6e38bc2c1b8d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mode: 0
+  intensity: 0.084
+  chromaticAberration: 0.2
+  axialAberration: 0.5
+  blur: 0
+  blurSpread: 0.75
+  luminanceDependency: 0.25
+  blurDistance: 2.5
+  vignetteShader: {fileID: 4800000, guid: 627943dc7a9a74286b70a4f694a0acd5, type: 3}
+  separableBlurShader: {fileID: 4800000, guid: e97c14fbb5ea04c3a902cc533d7fc5d1, type: 3}
+  chromAberrationShader: {fileID: 4800000, guid: 2b4f29398d9484ccfa9fd220449f5eee,
+    type: 3}
 --- !u!124 &12428798
 Behaviour:
   m_ObjectHideFlags: 1
